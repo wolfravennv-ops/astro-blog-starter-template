@@ -3,108 +3,448 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const SITE_TITLE = 'Rust | Darkbot';
-const SITE_DESCRIPTION = 'Wolf Raven wasteland node';
+const SITE_TITLE = 'Sigil | Darkbot';
+const SITE_DESCRIPTION = 'Occult sigil page for elf.darkbot.cc';
 ---
 
 <!doctype html>
 <html lang="en">
-<head>
-<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-<style>
-main{
-max-width:900px;
-margin:auto;
-padding:40px 20px;
-color:#eee;
-}
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			:root {
+				--bg-1: #050507;
+				--bg-2: #0b0b12;
+				--panel: rgba(14, 14, 20, 0.86);
+				--panel-2: rgba(22, 18, 30, 0.88);
+				--text: #ece7f6;
+				--muted: #a79eb9;
+				--line: rgba(188, 166, 235, 0.16);
+				--accent: #8c67d8;
+				--accent-2: #d7c6ff;
+				--blood: #7d1f34;
+				--glow: rgba(140, 103, 216, 0.32);
+			}
 
-.hero{
-background:#171717;
-padding:40px;
-border-radius:14px;
-border:1px solid #333;
-text-align:center;
-}
+			* {
+				box-sizing: border-box;
+			}
 
-h1{
-font-size:3rem;
-color:#d88a3d;
-margin-bottom:10px;
-}
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+				min-height: 100%;
+				font-family: Georgia, 'Times New Roman', serif;
+				background:
+					radial-gradient(circle at top, rgba(120, 82, 190, 0.14), transparent 30%),
+					radial-gradient(circle at bottom, rgba(125, 31, 52, 0.12), transparent 25%),
+					linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 50%, #050507 100%);
+				color: var(--text);
+			}
 
-p{
-line-height:1.6;
-color:#bbb;
-}
+			body {
+				min-height: 100vh;
+			}
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:16px;
-margin-top:30px;
-}
+			main {
+				max-width: 1180px;
+				margin: 0 auto;
+				padding: 2.5rem 1.25rem 4rem;
+			}
 
-.card{
-background:#202020;
-padding:20px;
-border-radius:10px;
-border:1px solid #333;
-}
+			.hero {
+				position: relative;
+				overflow: hidden;
+				border: 1px solid var(--line);
+				border-radius: 28px;
+				padding: 3.2rem 2rem;
+				background:
+					linear-gradient(145deg, rgba(17, 17, 24, 0.92), rgba(8, 8, 12, 0.96)),
+					var(--panel);
+				box-shadow:
+					0 0 0 1px rgba(255,255,255,0.025) inset,
+					0 24px 80px rgba(0, 0, 0, 0.5),
+					0 0 48px var(--glow);
+				text-align: center;
+			}
 
-.card h3{
-color:#d88a3d;
-margin-bottom:8px;
-}
+			.hero::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background:
+					radial-gradient(circle at 50% 22%, rgba(215, 198, 255, 0.06), transparent 18%),
+					linear-gradient(120deg, transparent, rgba(140, 103, 216, 0.05), transparent);
+				pointer-events: none;
+			}
 
-a.button{
-display:inline-block;
-margin-top:25px;
-padding:12px 22px;
-background:#d88a3d;
-color:#111;
-text-decoration:none;
-border-radius:8px;
-font-weight:bold;
-}
-</style>
-</head>
+			.eyebrow {
+				display: inline-block;
+				margin-bottom: 1rem;
+				padding: 0.45rem 0.85rem;
+				border-radius: 999px;
+				border: 1px solid rgba(215, 198, 255, 0.16);
+				background: rgba(215, 198, 255, 0.04);
+				color: var(--accent-2);
+				font-size: 0.78rem;
+				letter-spacing: 0.18em;
+				text-transform: uppercase;
+			}
 
-<body>
-<Header />
+			h1 {
+				margin: 0;
+				font-size: clamp(2.8rem, 8vw, 5.6rem);
+				letter-spacing: 0.14em;
+				text-transform: uppercase;
+				color: #f6f1ff;
+				text-shadow: 0 0 22px rgba(215, 198, 255, 0.12);
+			}
 
-<main>
-<div class="hero">
-<h1>RUST</h1>
-<p>Wolf Raven's corner of the wasteland.</p>
-<p>Built in the desert. Maintained by stubbornness.</p>
+			.subtitle {
+				max-width: 760px;
+				margin: 1.2rem auto 0;
+				font-size: 1.08rem;
+				line-height: 1.8;
+				color: var(--muted);
+			}
 
-<div class="grid">
-<div class="card">
-<h3>Status</h3>
-<p>Online and mildly hostile.</p>
-</div>
+			.sigil-wrap {
+				display: grid;
+				grid-template-columns: 1.1fr 0.9fr;
+				gap: 1.4rem;
+				margin-top: 2rem;
+				align-items: stretch;
+			}
 
-<div class="card">
-<h3>Loot Policy</h3>
-<p>If it is unlocked, it belongs to history.</p>
-</div>
+			.panel {
+				border: 1px solid var(--line);
+				border-radius: 24px;
+				background: var(--panel);
+				padding: 1.5rem;
+				box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+			}
 
-<div class="card">
-<h3>Operator</h3>
-<p>Wolf Raven</p>
-</div>
+			.sigil-panel {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				min-height: 540px;
+				background:
+					radial-gradient(circle at center, rgba(140, 103, 216, 0.08), transparent 38%),
+					linear-gradient(180deg, rgba(19, 16, 28, 0.95), rgba(9, 9, 14, 0.96));
+			}
 
-<div class="card">
-<h3>Survival Tip</h3>
-<p>Trust nobody carrying kindness.</p>
-</div>
-</div>
+			.info-panel {
+				background:
+					linear-gradient(180deg, rgba(24, 20, 34, 0.96), rgba(12, 12, 18, 0.96));
+			}
 
-<a class="button" href="https://darkbot.cc">Return to Darkbot</a>
-</div>
-</main>
+			.section-title {
+				margin: 0 0 0.85rem;
+				font-size: 1.2rem;
+				color: #fff;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+			}
 
-<Footer />
-</body>
+			.lead {
+				color: var(--muted);
+				line-height: 1.75;
+				margin-bottom: 1.15rem;
+			}
+
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+				gap: 1rem;
+				margin-top: 1rem;
+			}
+
+			.card {
+				border: 1px solid var(--line);
+				border-radius: 18px;
+				padding: 1rem;
+				background: rgba(255,255,255,0.02);
+			}
+
+			.card h3 {
+				margin: 0 0 0.55rem;
+				font-size: 0.95rem;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				color: var(--accent-2);
+			}
+
+			.card p {
+				margin: 0;
+				color: var(--muted);
+				line-height: 1.65;
+				font-size: 0.98rem;
+			}
+
+			.invocation {
+				margin-top: 1.2rem;
+				padding: 1.1rem 1.2rem;
+				border-left: 3px solid var(--blood);
+				border-radius: 0 16px 16px 0;
+				background: rgba(125, 31, 52, 0.08);
+				color: #ddd4eb;
+				line-height: 1.8;
+				font-style: italic;
+			}
+
+			.actions {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.85rem;
+				margin-top: 1.4rem;
+			}
+
+			.button {
+				display: inline-block;
+				padding: 0.95rem 1.25rem;
+				border-radius: 12px;
+				font-weight: 700;
+				text-decoration: none;
+				transition: 0.2s ease;
+				border: 1px solid transparent;
+			}
+
+			.button.primary {
+				background: linear-gradient(135deg, var(--accent), #6f4bc0);
+				color: white;
+				box-shadow: 0 12px 28px rgba(111, 75, 192, 0.28);
+			}
+
+			.button.secondary {
+				background: rgba(255,255,255,0.03);
+				color: var(--accent-2);
+				border-color: rgba(215, 198, 255, 0.14);
+			}
+
+			.button:hover {
+				transform: translateY(-2px);
+			}
+
+			.footer-note {
+				text-align: center;
+				margin-top: 2rem;
+				color: #7f768f;
+				font-size: 0.95rem;
+				letter-spacing: 0.04em;
+			}
+
+			svg {
+				width: min(100%, 620px);
+				height: auto;
+				filter: drop-shadow(0 0 14px rgba(140, 103, 216, 0.22));
+			}
+
+			.outer-ring,
+			.inner-ring,
+			.rune-line,
+			.star-line,
+			.center-mark,
+			.blood-mark {
+				fill: none;
+				vector-effect: non-scaling-stroke;
+			}
+
+			.outer-ring {
+				stroke: rgba(215, 198, 255, 0.75);
+				stroke-width: 2.2;
+			}
+
+			.inner-ring {
+				stroke: rgba(140, 103, 216, 0.65);
+				stroke-width: 1.6;
+			}
+
+			.star-line {
+				stroke: rgba(215, 198, 255, 0.88);
+				stroke-width: 2;
+				stroke-linecap: round;
+				stroke-linejoin: round;
+			}
+
+			.rune-line {
+				stroke: rgba(140, 103, 216, 0.92);
+				stroke-width: 2.4;
+				stroke-linecap: round;
+				stroke-linejoin: round;
+			}
+
+			.center-mark {
+				stroke: rgba(255, 255, 255, 0.92);
+				stroke-width: 1.7;
+			}
+
+			.blood-mark {
+				stroke: rgba(125, 31, 52, 0.84);
+				stroke-width: 2.2;
+			}
+
+			.rune-text {
+				font-size: 18px;
+				letter-spacing: 7px;
+				fill: rgba(215, 198, 255, 0.72);
+				text-transform: uppercase;
+			}
+
+			@media (max-width: 900px) {
+				.sigil-wrap {
+					grid-template-columns: 1fr;
+				}
+
+				.sigil-panel {
+					min-height: 420px;
+				}
+			}
+
+			@media (max-width: 640px) {
+				main {
+					padding: 1.5rem 0.9rem 3rem;
+				}
+
+				.hero {
+					padding: 2.4rem 1rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero">
+				<div class="eyebrow">Elf.Darkbot.cc</div>
+				<h1>Sigil Archive</h1>
+				<p class="subtitle">
+					A page for marks, warnings, and symbols that look like they belong on a
+				 stone door no one sensible would open. Better than that chirpy Astro default,
+				 which looked like it had never seen a candle burn down to black wax.
+				</p>
+			</section>
+
+			<section class="sigil-wrap">
+				<div class="panel sigil-panel">
+					<svg viewBox="0 0 600 600" aria-label="Occult sigil">
+						<defs>
+							<path
+								id="topArc"
+								d="M 120 300 A 180 180 0 0 1 480 300"
+							/>
+							<path
+								id="bottomArc"
+								d="M 480 300 A 180 180 0 0 1 120 300"
+							/>
+						</defs>
+
+						<circle class="outer-ring" cx="300" cy="300" r="220" />
+						<circle class="inner-ring" cx="300" cy="300" r="182" />
+						<circle class="inner-ring" cx="300" cy="300" r="120" />
+
+						<text class="rune-text">
+							<textPath href="#topArc" startOffset="50%" text-anchor="middle">
+								PURGO ERGO SUM
+							</textPath>
+						</text>
+
+						<text class="rune-text">
+							<textPath href="#bottomArc" startOffset="50%" text-anchor="middle">
+								WOLF RAVEN DARKBOT
+							</textPath>
+						</text>
+
+						<path
+							class="star-line"
+							d="M300 120 L342 250 L478 250 L368 330 L410 460 L300 380 L190 460 L232 330 L122 250 L258 250 Z"
+						/>
+
+						<path class="center-mark" d="M300 170 L300 430" />
+						<path class="center-mark" d="M170 300 L430 300" />
+						<path class="center-mark" d="M208 208 L392 392" />
+						<path class="center-mark" d="M392 208 L208 392" />
+
+						<path class="rune-line" d="M300 95 L300 55" />
+						<path class="rune-line" d="M300 55 L282 78" />
+						<path class="rune-line" d="M300 55 L318 78" />
+
+						<path class="rune-line" d="M505 300 L545 300" />
+						<path class="rune-line" d="M545 300 L522 282" />
+						<path class="rune-line" d="M545 300 L522 318" />
+
+						<path class="rune-line" d="M300 505 L300 545" />
+						<path class="rune-line" d="M300 545 L282 522" />
+						<path class="rune-line" d="M300 545 L318 522" />
+
+						<path class="rune-line" d="M95 300 L55 300" />
+						<path class="rune-line" d="M55 300 L78 282" />
+						<path class="rune-line" d="M55 300 L78 318" />
+
+						<path class="blood-mark" d="M300 238 L300 362" />
+						<path class="blood-mark" d="M265 300 L335 300" />
+
+						<circle class="outer-ring" cx="300" cy="300" r="20" />
+						<circle class="inner-ring" cx="300" cy="300" r="8" />
+					</svg>
+				</div>
+
+				<div class="panel info-panel">
+					<h2 class="section-title">The Mark</h2>
+					<p class="lead">
+						This sigil sits between ornament and warning. Part banner. Part seal.
+						Part message that says turning back would have been the sane option.
+					</p>
+
+					<div class="grid">
+						<div class="card">
+							<h3>Purpose</h3>
+							<p>
+								A ceremonial front page for the elf domain, meant to feel older,
+								sharper, and less interested in making strangers comfortable.
+							</p>
+						</div>
+
+						<div class="card">
+							<h3>Inscription</h3>
+							<p>
+								“Purgo, ergo sum.” Cleanse, therefore I am. Subtle as a blade.
+							</p>
+						</div>
+
+						<div class="card">
+							<h3>Operator</h3>
+							<p>
+								Wolf Raven. Desert-forged. Mild patience for nonsense at best.
+							</p>
+						</div>
+
+						<div class="card">
+							<h3>State</h3>
+							<p>
+								Online. Stable enough. Still more graceful than the default blog template.
+							</p>
+						</div>
+					</div>
+
+					<div class="invocation">
+						Not every symbol is meant to welcome. Some exist to mark territory,
+						hold intention, and remind the wandering that beauty and danger have
+						always shared a wall.
+					</div>
+
+					<div class="actions">
+						<a class="button primary" href="https://darkbot.cc">Return to Darkbot</a>
+						<a class="button secondary" href="https://rust.darkbot.cc">Visit Rust Realm</a>
+					</div>
+				</div>
+			</section>
+
+			<p class="footer-note">
+				Sigil page active. Moonlit nonsense now deployed with purpose.
+			</p>
+		</main>
+		<Footer />
+	</body>
 </html>
