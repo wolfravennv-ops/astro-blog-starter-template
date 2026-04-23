@@ -2,49 +2,109 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+const SITE_TITLE = 'Rust | Darkbot';
+const SITE_DESCRIPTION = 'Wolf Raven wasteland node';
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+<head>
+<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+<style>
+main{
+max-width:900px;
+margin:auto;
+padding:40px 20px;
+color:#eee;
+}
+
+.hero{
+background:#171717;
+padding:40px;
+border-radius:14px;
+border:1px solid #333;
+text-align:center;
+}
+
+h1{
+font-size:3rem;
+color:#d88a3d;
+margin-bottom:10px;
+}
+
+p{
+line-height:1.6;
+color:#bbb;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:16px;
+margin-top:30px;
+}
+
+.card{
+background:#202020;
+padding:20px;
+border-radius:10px;
+border:1px solid #333;
+}
+
+.card h3{
+color:#d88a3d;
+margin-bottom:8px;
+}
+
+a.button{
+display:inline-block;
+margin-top:25px;
+padding:12px 22px;
+background:#d88a3d;
+color:#111;
+text-decoration:none;
+border-radius:8px;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+<Header />
+
+<main>
+<div class="hero">
+<h1>RUST</h1>
+<p>Wolf Raven's corner of the wasteland.</p>
+<p>Built in the desert. Maintained by stubbornness.</p>
+
+<div class="grid">
+<div class="card">
+<h3>Status</h3>
+<p>Online and mildly hostile.</p>
+</div>
+
+<div class="card">
+<h3>Loot Policy</h3>
+<p>If it is unlocked, it belongs to history.</p>
+</div>
+
+<div class="card">
+<h3>Operator</h3>
+<p>Wolf Raven</p>
+</div>
+
+<div class="card">
+<h3>Survival Tip</h3>
+<p>Trust nobody carrying kindness.</p>
+</div>
+</div>
+
+<a class="button" href="https://darkbot.cc">Return to Darkbot</a>
+</div>
+</main>
+
+<Footer />
+</body>
 </html>
