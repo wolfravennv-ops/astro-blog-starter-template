@@ -16,7 +16,6 @@ const SITE_DESCRIPTION = 'Occult sigil page for elf.darkbot.cc';
 				--bg-1: #050507;
 				--bg-2: #0b0b12;
 				--panel: rgba(14, 14, 20, 0.86);
-				--panel-2: rgba(22, 18, 30, 0.88);
 				--text: #ece7f6;
 				--muted: #a79eb9;
 				--line: rgba(188, 166, 235, 0.16);
@@ -39,7 +38,7 @@ const SITE_DESCRIPTION = 'Occult sigil page for elf.darkbot.cc';
 				background:
 					radial-gradient(circle at top, rgba(120, 82, 190, 0.14), transparent 30%),
 					radial-gradient(circle at bottom, rgba(125, 31, 52, 0.12), transparent 25%),
-					linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 50%, #050507 100%);
+					linear-gradient(180deg, var(--bg-1), var(--bg-2) 50%, #050507);
 				color: var(--text);
 			}
 
@@ -48,7 +47,7 @@ const SITE_DESCRIPTION = 'Occult sigil page for elf.darkbot.cc';
 			}
 
 			main {
-				max-width: 1180px;
+				width: min(100%, 1180px);
 				margin: 0 auto;
 				padding: 2.5rem 1.25rem 4rem;
 			}
@@ -58,12 +57,12 @@ const SITE_DESCRIPTION = 'Occult sigil page for elf.darkbot.cc';
 				overflow: hidden;
 				border: 1px solid var(--line);
 				border-radius: 28px;
-				padding: 3.2rem 2rem;
+				padding: clamp(2.2rem, 6vw, 3.4rem) 1rem;
 				background:
 					linear-gradient(145deg, rgba(17, 17, 24, 0.92), rgba(8, 8, 12, 0.96)),
 					var(--panel);
 				box-shadow:
-					0 0 0 1px rgba(255,255,255,0.025) inset,
+					0 0 0 1px rgba(255, 255, 255, 0.025) inset,
 					0 24px 80px rgba(0, 0, 0, 0.5),
 					0 0 48px var(--glow);
 				text-align: center;
@@ -80,6 +79,7 @@ const SITE_DESCRIPTION = 'Occult sigil page for elf.darkbot.cc';
 			}
 
 			.eyebrow {
+				position: relative;
 				display: inline-block;
 				margin-bottom: 1rem;
 				padding: 0.45rem 0.85rem;
@@ -93,25 +93,30 @@ const SITE_DESCRIPTION = 'Occult sigil page for elf.darkbot.cc';
 			}
 
 			h1 {
-				margin: 0;
-				font-size: clamp(2.8rem, 8vw, 5.6rem);
-				letter-spacing: 0.14em;
+				position: relative;
+				max-width: 10ch;
+				margin: 0 auto;
+				font-size: clamp(2.4rem, 6vw, 4.6rem);
+				line-height: 0.98;
+				letter-spacing: 0.08em;
 				text-transform: uppercase;
 				color: #f6f1ff;
+				text-wrap: balance;
 				text-shadow: 0 0 22px rgba(215, 198, 255, 0.12);
 			}
 
 			.subtitle {
+				position: relative;
 				max-width: 760px;
 				margin: 1.2rem auto 0;
-				font-size: 1.08rem;
+				font-size: clamp(1rem, 2.5vw, 1.08rem);
 				line-height: 1.8;
 				color: var(--muted);
 			}
 
 			.sigil-wrap {
 				display: grid;
-				grid-template-columns: 1.1fr 0.9fr;
+				grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
 				gap: 1.4rem;
 				margin-top: 2rem;
 				align-items: stretch;
@@ -121,23 +126,22 @@ const SITE_DESCRIPTION = 'Occult sigil page for elf.darkbot.cc';
 				border: 1px solid var(--line);
 				border-radius: 24px;
 				background: var(--panel);
-				padding: 1.5rem;
-				box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+				padding: clamp(1rem, 3vw, 1.5rem);
+				box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
 			}
 
 			.sigil-panel {
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				min-height: 540px;
+				min-height: clamp(320px, 52vw, 540px);
 				background:
 					radial-gradient(circle at center, rgba(140, 103, 216, 0.08), transparent 38%),
 					linear-gradient(180deg, rgba(19, 16, 28, 0.95), rgba(9, 9, 14, 0.96));
 			}
 
 			.info-panel {
-				background:
-					linear-gradient(180deg, rgba(24, 20, 34, 0.96), rgba(12, 12, 18, 0.96));
+				background: linear-gradient(180deg, rgba(24, 20, 34, 0.96), rgba(12, 12, 18, 0.96));
 			}
 
 			.section-title {
@@ -151,12 +155,12 @@ const SITE_DESCRIPTION = 'Occult sigil page for elf.darkbot.cc';
 			.lead {
 				color: var(--muted);
 				line-height: 1.75;
-				margin-bottom: 1.15rem;
+				margin: 0 0 1.15rem;
 			}
 
 			.grid {
 				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+				grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
 				gap: 1rem;
 				margin-top: 1rem;
 			}
@@ -165,7 +169,7 @@ const SITE_DESCRIPTION = 'Occult sigil page for elf.darkbot.cc';
 				border: 1px solid var(--line);
 				border-radius: 18px;
 				padding: 1rem;
-				background: rgba(255,255,255,0.02);
+				background: rgba(255, 255, 255, 0.02);
 			}
 
 			.card h3 {
@@ -202,7 +206,10 @@ const SITE_DESCRIPTION = 'Occult sigil page for elf.darkbot.cc';
 			}
 
 			.button {
-				display: inline-block;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				min-height: 44px;
 				padding: 0.95rem 1.25rem;
 				border-radius: 12px;
 				font-weight: 700;
@@ -218,7 +225,7 @@ const SITE_DESCRIPTION = 'Occult sigil page for elf.darkbot.cc';
 			}
 
 			.button.secondary {
-				background: rgba(255,255,255,0.03);
+				background: rgba(255, 255, 255, 0.03);
 				color: var(--accent-2);
 				border-color: rgba(215, 198, 255, 0.14);
 			}
@@ -236,6 +243,7 @@ const SITE_DESCRIPTION = 'Occult sigil page for elf.darkbot.cc';
 			}
 
 			svg {
+				display: block;
 				width: min(100%, 620px);
 				height: auto;
 				filter: drop-shadow(0 0 14px rgba(140, 103, 216, 0.22));
@@ -296,33 +304,74 @@ const SITE_DESCRIPTION = 'Occult sigil page for elf.darkbot.cc';
 				.sigil-wrap {
 					grid-template-columns: 1fr;
 				}
-
-				.sigil-panel {
-					min-height: 420px;
-				}
 			}
 
 			@media (max-width: 640px) {
 				main {
-					padding: 1.5rem 0.9rem 3rem;
+					padding: 1.25rem 0.8rem 3rem;
 				}
 
 				.hero {
-					padding: 2.4rem 1rem;
+					border-radius: 22px;
+				}
+
+				h1 {
+					max-width: 9ch;
+					font-size: clamp(2.15rem, 13vw, 3.4rem);
+					letter-spacing: 0.055em;
+				}
+
+				.subtitle {
+					line-height: 1.65;
+				}
+
+				.panel {
+					border-radius: 20px;
+				}
+
+				.sigil-panel {
+					min-height: 300px;
+				}
+
+				.rune-text {
+					font-size: 15px;
+					letter-spacing: 5px;
+				}
+
+				.actions {
+					flex-direction: column;
+				}
+
+				.button {
+					width: 100%;
+				}
+			}
+
+			@media (max-width: 380px) {
+				h1 {
+					font-size: 2rem;
+					letter-spacing: 0.04em;
+				}
+
+				.eyebrow {
+					font-size: 0.68rem;
+					letter-spacing: 0.14em;
 				}
 			}
 		</style>
 	</head>
+
 	<body>
 		<Header />
+
 		<main>
 			<section class="hero">
 				<div class="eyebrow">Elf.Darkbot.cc</div>
 				<h1>Sigil Archive</h1>
 				<p class="subtitle">
 					A page for marks, warnings, and symbols that look like they belong on a
-				 stone door no one sensible would open. Better than that chirpy Astro default,
-				 which looked like it had never seen a candle burn down to black wax.
+					stone door no one sensible would open. Better than that chirpy Astro default,
+					which looked like it had never seen a candle burn down to black wax.
 				</p>
 			</section>
 
@@ -330,14 +379,8 @@ const SITE_DESCRIPTION = 'Occult sigil page for elf.darkbot.cc';
 				<div class="panel sigil-panel">
 					<svg viewBox="0 0 600 600" aria-label="Occult sigil">
 						<defs>
-							<path
-								id="topArc"
-								d="M 120 300 A 180 180 0 0 1 480 300"
-							/>
-							<path
-								id="bottomArc"
-								d="M 480 300 A 180 180 0 0 1 120 300"
-							/>
+							<path id="topArc" d="M 120 300 A 180 180 0 0 1 480 300" />
+							<path id="bottomArc" d="M 480 300 A 180 180 0 0 1 120 300" />
 						</defs>
 
 						<circle class="outer-ring" cx="300" cy="300" r="220" />
@@ -445,6 +488,7 @@ const SITE_DESCRIPTION = 'Occult sigil page for elf.darkbot.cc';
 				Sigil page active. Moonlit nonsense now deployed with purpose.
 			</p>
 		</main>
+
 		<Footer />
 	</body>
 </html>
